@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DebugDeck — AI Code Debugger & Explainer</title>
+    <meta
+      name="description"
+      content="DebugDeck helps developers debug code and get crystal-clear explanations using OpenRouter AI models."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero glass">
+        <div class="hero-text">
+          <p class="eyebrow">For founders, teams, and indie devs</p>
+          <h1>Code Debugger + Explainer that feels like a million-dollar startup.</h1>
+          <p>
+            Paste broken code, select a model from OpenRouter, and get accurate fixes plus
+            plain-English explanations in seconds.
+          </p>
+          <ul class="feature-list">
+            <li>⚡ Fast debugging with actionable patches</li>
+            <li>🧠 Explain complex code in simple language</li>
+            <li>🔐 Bring your own OpenRouter API key</li>
+          </ul>
+        </div>
+        <div class="hero-card">
+          <h2>How it works</h2>
+          <ol>
+            <li>Choose a model (e.g. Claude, GPT, Gemini via OpenRouter).</li>
+            <li>Paste code + error details.</li>
+            <li>Get fixed code, root-cause analysis, and next steps.</li>
+          </ol>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="panel glass">
+          <h2>OpenRouter Setup</h2>
+          <label>
+            API Key
+            <input id="apiKey" type="password" placeholder="sk-or-v1-..." autocomplete="off" />
+          </label>
+          <label>
+            Model
+            <input id="model" type="text" value="openai/gpt-4o-mini" />
+          </label>
+          <label>
+            Task Type
+            <select id="taskType">
+              <option value="debug">Debug my code</option>
+              <option value="explain">Explain my code</option>
+              <option value="both">Debug + Explain</option>
+            </select>
+          </label>
+          <p class="muted">
+            Your key is only kept in localStorage on your browser and sent directly to
+            OpenRouter from your client.
+          </p>
+        </section>
+
+        <section class="panel glass">
+          <h2>Input</h2>
+          <label>
+            Language / Stack
+            <input id="stack" type="text" placeholder="JavaScript / React / Node" />
+          </label>
+          <label>
+            Error Message / Context
+            <textarea id="errorContext" rows="4" placeholder="Paste runtime error, logs, or context"></textarea>
+          </label>
+          <label>
+            Code Snippet
+            <textarea id="codeInput" rows="12" placeholder="Paste your code here..."></textarea>
+          </label>
+          <button id="runBtn" class="primary">Analyze with AI</button>
+        </section>
+
+        <section class="panel glass output-panel">
+          <h2>AI Output</h2>
+          <pre id="output">Your result will appear here.</pre>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
